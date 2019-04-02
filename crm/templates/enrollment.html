@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <a href="{% url 'enrollment_add' '0' %}" class="btn btn-primary btn-sm">添加</a>
+    <table style="margin: 15px" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>名字</th>
+        <th>报名原因</th>
+        <th>期待值</th>
+        <th>是否同意协议</th>
+        <th>申请是否通过</th>
+        <th>报名日期</th>
+        <th>校区</th>
+        <th>班级</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for foo in  enrollment_obj %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ foo.customer }}</td>
+        <td>{{ foo.why_us }}</td>
+        <td>{{ foo.your_expectation }}</td>
+        <td>{{ foo.contract_agreed }}</td>
+        <td>{{ foo.contract_approved }}</td>
+        <td>{{ foo.enrolled_date }}</td>
+        <td>{{ foo.school }}</td>
+        <td>{{ foo.enrolment_class }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

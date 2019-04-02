@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <form action="" method="post" novalidate>
+    {% for foo in enrollment_obj %}
+        {% csrf_token %}
+        <label for="{{ foo.id_for_label }}">{{ foo.label }}</label>
+        {{ foo }}
+        <span>{{ foo.errors.0 }}</span>
+    {% endfor %}
+    <button>提交</button>
+    </form>
+{% endblock %}

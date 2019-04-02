@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h3>分页界面</h3>
+    <table class="table-bordered table table-hover">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>名字</th>
+            <th>密码</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in all_user %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <th>{{ user.name }}</th>
+                <th>{{ user.pwd }}</th>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" style="text-align: center">
+        <ul class="pagination">
+            {{ page_html|safe }}
+        </ul>
+    </nav>
+{% endblock %}
